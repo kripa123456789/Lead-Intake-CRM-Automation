@@ -171,8 +171,6 @@ Lead-Intake-CRM-Automation/
 
 ## 📸 Screenshots
 
-> Add screenshots inside the `screenshots` folder and update the paths below.
-
 ### Workflow
 
 ```markdown
