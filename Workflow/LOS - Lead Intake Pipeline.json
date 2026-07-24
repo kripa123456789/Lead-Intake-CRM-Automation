@@ -1,0 +1,635 @@
+{
+  "name": "LOS - Lead Intake Pipeline",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "documentId": {
+          "__rl": true,
+          "value": "1L9wkXUoV0sl0l6gHJAulea2Uc1tEmftRixmeXWw2tKg",
+          "mode": "list",
+          "cachedResultName": "LOS - Lead Intake",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1L9wkXUoV0sl0l6gHJAulea2Uc1tEmftRixmeXWw2tKg/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1314017823,
+          "mode": "list",
+          "cachedResultName": "Form Responses 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1L9wkXUoV0sl0l6gHJAulea2Uc1tEmftRixmeXWw2tKg/edit#gid=1314017823"
+        },
+        "event": "rowAdded",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [
+        192,
+        0
+      ],
+      "id": "85358a56-0b72-43fd-81a1-8e748ad7dd50",
+      "name": "Google Sheets Trigger",
+      "credentials": {
+        "googleSheetsTriggerOAuth2Api": {
+          "id": "2h5OtI1JabROojSc",
+          "name": "Kripa077 Sheet Trigger"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1jojZ8TOM9TXCPeNy-ra38vCWFmzxy1np_0guPLmTU0A",
+          "mode": "list",
+          "cachedResultName": "LOS - Business Database",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1jojZ8TOM9TXCPeNy-ra38vCWFmzxy1np_0guPLmTU0A/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 974947533,
+          "mode": "list",
+          "cachedResultName": "Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1jojZ8TOM9TXCPeNy-ra38vCWFmzxy1np_0guPLmTU0A/edit#gid=974947533"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Lead_Name": "={{ $('Followup_Date').item.json['Full Name'] }}",
+            "Company": "={{ $('Followup_Date').item.json['Company Name'] }}",
+            "Email": "={{ $('Followup_Date').item.json['Email Address'] }}",
+            "Phone": "={{ $('Followup_Date').item.json['Phone Number '] }}",
+            "Lead_Source": "Website",
+            "Lead_Status": "New",
+            "Created_Date": "={{ $('Followup_Date').item.json.Timestamp }}",
+            "Converted": "No",
+            "Service_Interested": "={{ $('Followup_Date').item.json['Which service are you interested in?'] }}",
+            "Budget": "={{ $('Followup_Date').item.json['Estimated Monthly Budget'] }}",
+            "Notes": "={{ $('Followup_Date').item.json['Tell us about your requirement'] }}",
+            "Lead_ID": "={{ $('Followup_Date').item.json.Lead_ID }}",
+            "Assigned_To": "={{ $('Followup_Date').item.json.Assigned_To }}",
+            "Followup_Date": "={{ $('Followup_Date').item.json.Followup_Date }}",
+            "AI_Summary": "={{ $json.AI_Summary }}",
+            "AI_Priority": "={{ $json.AI_Priority }}",
+            "AI_Followup_Suggestion": "={{ $json.AI_Followup_Suggestion }}",
+            "Business_Goal": "={{ $json.Business_Goal }}",
+            "Lead_Score": "={{ $json.Lead_Score }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Lead_ID",
+              "displayName": "Lead_ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Lead_Name",
+              "displayName": "Lead_Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Company",
+              "displayName": "Company",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Phone",
+              "displayName": "Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Lead_Source",
+              "displayName": "Lead_Source",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Lead_Status",
+              "displayName": "Lead_Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Lead_Score",
+              "displayName": "Lead_Score",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Assigned_To",
+              "displayName": "Assigned_To",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Deal_Value",
+              "displayName": "Deal_Value",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Followup_Date",
+              "displayName": "Followup_Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Created_Date",
+              "displayName": "Created_Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Converted",
+              "displayName": "Converted",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Service_Interested",
+              "displayName": "Service_Interested",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Budget",
+              "displayName": "Budget",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "AI_Summary",
+              "displayName": "AI_Summary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "AI_Priority",
+              "displayName": "AI_Priority",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Business_Goal",
+              "displayName": "Business_Goal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "AI_Followup_Suggestion",
+              "displayName": "AI_Followup_Suggestion",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1888,
+        0
+      ],
+      "id": "49aef3fa-ef0e-4d04-a8cf-0198bda1e79a",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "1pNsceqorgePBghF",
+          "name": "Kripa 077 Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Append row in sheet').item.json.Email }}",
+        "subject": "={{ $('Code in JavaScript').item.json.Email_Subject }}",
+        "message": "={{ $('Code in JavaScript').item.json.Email_Body }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        2336,
+        0
+      ],
+      "id": "f7b8f66c-01aa-4524-a446-2fb11dd4aebb",
+      "name": "Send a message",
+      "webhookId": "2d919df9-045f-4574-ac2f-64956c4947d1",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "m5rWWzvXvlM0bk11",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1jojZ8TOM9TXCPeNy-ra38vCWFmzxy1np_0guPLmTU0A",
+          "mode": "list",
+          "cachedResultName": "LOS - Business Database",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1jojZ8TOM9TXCPeNy-ra38vCWFmzxy1np_0guPLmTU0A/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1811452973,
+          "mode": "list",
+          "cachedResultName": "Settings",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1jojZ8TOM9TXCPeNy-ra38vCWFmzxy1np_0guPLmTU0A/edit#gid=1811452973"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Key",
+              "lookupValue": "Last_Lead_ID"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        416,
+        0
+      ],
+      "id": "37c06894-43fb-4230-92e6-fd9917142edb",
+      "name": "Get row(s) in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "1pNsceqorgePBghF",
+          "name": "Kripa 077 Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const lastLead = $input.first().json.Value;\n\nconst number = parseInt(lastLead.replace(\"L\", \"\"), 10);\n\nconst nextLeadId = \"L\" + String(number + 1).padStart(4, \"0\");\n\n// Original form submission\nconst form = $('Google Sheets Trigger').first().json;\n\nreturn [\n  {\n    json: {\n      ...form,\n      Lead_ID: nextLeadId\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        640,
+        0
+      ],
+      "id": "96ee9f22-1d31-45bc-b329-5b47e9e149b7",
+      "name": "Generate Lead ID"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1jojZ8TOM9TXCPeNy-ra38vCWFmzxy1np_0guPLmTU0A",
+          "mode": "list",
+          "cachedResultName": "LOS - Business Database",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1jojZ8TOM9TXCPeNy-ra38vCWFmzxy1np_0guPLmTU0A/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1811452973,
+          "mode": "list",
+          "cachedResultName": "Settings",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1jojZ8TOM9TXCPeNy-ra38vCWFmzxy1np_0guPLmTU0A/edit#gid=1811452973"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Key": "=Last_Lead_ID",
+            "Value": "={{ $('Generate Lead ID').first().json.Lead_ID }}"
+          },
+          "matchingColumns": [
+            "Key"
+          ],
+          "schema": [
+            {
+              "id": "Key",
+              "displayName": "Key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Value",
+              "displayName": "Value",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2112,
+        0
+      ],
+      "id": "063cca7f-e596-43c6-b15d-e7e52f7758d8",
+      "name": "Update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "1pNsceqorgePBghF",
+          "name": "Kripa 077 Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const lead = $input.first().json;\n\nconst service = (lead[\"Which service are you interested in?\"] || \"\").trim();\n\nlet assignedTo = \"\";\n\nswitch (service) {\n  case \"Branding\":\n    assignedTo = \"Rahul Mehra\";\n    break;\n\n  case \"Google Ads\":\n    assignedTo = \"Priya Singh\";\n    break;\n\n  case \"SEO\":\n    assignedTo = \"Amit Verma\";\n    break;\n\n  case \"Website Development\":\n    assignedTo = \"Sneha Kapoor\";\n    break;\n\n  case \"Social Media Management\":\n    assignedTo = \"Jay Verma\";\n    break;\n\n  case \"Meta Ads\":\n    assignedTo = \"Dheeraj Singh\";\n    break;\n\n  default:\n    assignedTo = \"Rahul Mehra\";\n}\n\nreturn [{\n  json: {\n    ...lead,\n    Assigned_To: assignedTo\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        864,
+        0
+      ],
+      "id": "c82843d0-0779-45e2-97d9-6021c705e5d4",
+      "name": "Assign Salesperson"
+    },
+    {
+      "parameters": {
+        "jsCode": "const lead = $input.first().json;\n\n// Today's date\nconst followup = new Date();\n\n// Add 2 days\nfollowup.setDate(followup.getDate() + 2);\n\n// Format: YYYY-MM-DD\nconst followupDate = followup.toISOString().split(\"T\")[0];\n\nreturn [\n  {\n    json: {\n      ...lead,\n      Followup_Date: followupDate\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1088,
+        0
+      ],
+      "id": "b5aeb2a0-1ea3-4444-84e8-ea7c0032e01a",
+      "name": "Followup_Date"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "models/gemini-3-flash-preview"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are an AI Lead Qualification Assistant for a digital marketing agency.\n\nAnalyze the lead information below and return ONLY a valid JSON object.\n\nLead Information:\n\nName: {{ $json[\"Full Name\"] }}\nCompany: {{ $json[\"Company Name\"] }}\nService Interested: {{ $json[\"Which service are you interested in?\"] }}\nBudget: {{ $json[\"Estimated Monthly Budget\"] }}\nRequirement: {{ $json[\"Tell us about your requirement\"] }}\n\nReturn ONLY this JSON:\n\n{\n  \"AI_Summary\": \"\",\n  \"Lead_Score\": 0,\n  \"AI_Priority\": \"\",\n  \"Business_Goal\": \"\",\n  \"AI_Followup_Suggestion\": \"\",\n  \"Email_Subject\": \"\",\n  \"Email_Body\": \"\"\n}\n\nRules:\n\nAI_Summary\n- Maximum 2 concise sentences summarizing the enquiry.\n\nLead_Score\n- Integer between 0 and 100.\n- Score higher when:\n  - Budget is high\n  - Requirement is detailed\n  - Business/company name is provided\n  - Email appears genuine\n- Score lower when:\n  - Submission looks like testing\n  - Requirement is vague\n  - Budget is very low\n\nAI_Priority\n- Only one of:\n  - High\n  - Medium\n  - Low\n\nBusiness_Goal\nIdentify the actual business objective, NOT the selected service.\n\nExamples:\n\nBranding → Brand Awareness\n\nMeta Ads → Lead Generation\n\nGoogle Ads → Paid Search Growth\n\nWebsite Development → Website Modernization\n\nSEO → Organic Growth\n\nSocial Media Management → Audience Growth\n\nAI_Followup_Suggestion\nOne professional sentence telling the salesperson what they should do next.\n\nEmail_Subject\nProfessional subject line.\nMaximum 60 characters.\n\nEmail_Body\n\nReturn ONLY valid HTML.\n\nGenerate a clean professional business email using the following HTML structure:\n\n<p>Hi {{ $json[\"Full Name\"] }},</p>\n\n<p>Thank you for contacting <strong>BrightFuture</strong>.</p>\n\n<p>...</p>\n\n<ul>\n<li>...</li>\n<li>...</li>\n<li>...</li>\n</ul>\n\n<p>One of our consultants will contact you within <strong>24 hours</strong>.</p>\n\n<p>If you have any additional questions, simply reply to this email.</p>\n\n<p>Best Regards,<br>\n<strong>{{ $json[\"Assigned_To\"] }}</strong><br>\nBusiness Consultant<br>\nBrightFuture Digital Marketing</p>\n\nPersonalize the email using:\n- customer name\n- company\n- selected service\n- budget\n- requirement\n\nReturn ONLY JSON.\n\nDo not use markdown.\n\nDo not add explanations.\n\nDo not wrap JSON inside code blocks."
+            }
+          ]
+        },
+        "jsonOutput": true,
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1.2,
+      "position": [
+        1312,
+        0
+      ],
+      "id": "176dd095-d155-4100-9dc5-c6fe53f07e19",
+      "name": "Message a model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "rxjsx4C9wwyBxYT1",
+          "name": "Google Gemini(PaLM) Api account K01234567"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const text = $input.first().json.content.parts[0].text;\n\ntry {\n  const start = text.indexOf(\"{\");\n  const end = text.lastIndexOf(\"}\");\n\n  if (start === -1 || end === -1) {\n    throw new Error(\"No JSON found.\");\n  }\n\n  const jsonText = text.substring(start, end + 1);\n\n  const aiData = JSON.parse(jsonText);\n\n  return [{\n    json: {\n      ...$input.first().json,\n      ...aiData\n    }\n  }];\n\n} catch (err) {\n  throw new Error(\n    \"Gemini returned invalid JSON:\\n\\n\" + text\n  );\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1664,
+        0
+      ],
+      "id": "6f206475-086f-4b6e-a96b-44e9ebaac8d9",
+      "name": "Code in JavaScript"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Google Sheets Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Generate Lead ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Lead ID": {
+      "main": [
+        [
+          {
+            "node": "Assign Salesperson",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Assign Salesperson": {
+      "main": [
+        [
+          {
+            "node": "Followup_Date",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Followup_Date": {
+      "main": [
+        [
+          {
+            "node": "Message a model",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message a model": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "f09e48d4-e42c-4904-8fe4-a04a9650ef74",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "65bc89ad7d65d86bbff6f862b2f275c6ae54a10bafd0d2b6b3e9d9d52462fbba"
+  },
+  "id": "QBToxFPPkPilir3D",
+  "tags": []
+}
