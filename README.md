@@ -319,11 +319,11 @@ AI-Enabled-CRM-Automation/
 
 ## CRM Database
 
-![CRM Database](screenshots/crm-sheet.png)
+![CRM Database](screenshots/crm-database.png)
 
 ## HTML Email
 
-![Email](screenshots/html-email.png)
+![Email](screenshots/email.png)
 
 ---
 
