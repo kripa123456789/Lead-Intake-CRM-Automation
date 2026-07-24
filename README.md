@@ -1,36 +1,120 @@
-# 🚀 Lead Intake & CRM Automation System
+# 🤖 AI-Enabled CRM Automation Platform
 
-> An end-to-end CRM Lead Management workflow built using **n8n**, **Google Forms**, **Google Sheets**, **Gmail**, and **JavaScript** to automate lead capture, lead assignment, follow-up scheduling, and customer acknowledgment emails.
+> An AI-powered Lead Management & CRM Automation Platform built using **n8n**, **Google Gemini**, **Google Forms**, **Google Sheets**, **JavaScript**, and **Gmail** to automate lead capture, intelligent lead qualification, AI scoring, business objective detection, follow-up recommendations, CRM management, and customer communication.
 
----
-
-## 📖 Project Overview
-
-Businesses often receive leads through website contact forms, but manually recording, assigning, and following up on those leads is repetitive, time-consuming, and error-prone.
-
-This project automates the complete lead intake process by:
-
-- Capturing Google Form submissions in real time
-- Generating unique sequential Lead IDs
-- Automatically assigning leads to sales representatives
-- Scheduling follow-up dates
-- Storing lead information in a centralized CRM database
-- Sending professional HTML acknowledgment emails to customers
+![n8n](https://img.shields.io/badge/n8n-Automation-orange)
+![Google Gemini](https://img.shields.io/badge/Google-Gemini-blue)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
+![Google Sheets](https://img.shields.io/badge/Google_Sheets-CRM-success)
+![MIT License](https://img.shields.io/badge/License-MIT-green)
 
 ---
 
-## ✨ Features
+# 📖 Project Overview
+
+Managing incoming business leads manually is repetitive, slow, and often inconsistent. Sales teams spend valuable time qualifying leads, identifying customer objectives, assigning sales representatives, writing follow-up notes, and sending acknowledgment emails.
+
+This project transforms a traditional CRM workflow into an **AI-powered Lead Management Platform**.
+
+Whenever a customer submits a Google Form, the workflow automatically:
+
+- Captures the lead
+- Generates a unique Lead ID
+- Uses Google Gemini AI to analyze the lead
+- Assigns an AI Lead Score
+- Determines the customer's Business Objective
+- Generates an AI Summary
+- Recommends the next sales action
+- Assigns the most appropriate salesperson
+- Schedules follow-up dates
+- Updates the CRM database
+- Sends a professional HTML acknowledgment email
+
+The result is a CRM system that not only automates data entry but also enriches every lead with AI-generated business insights.
+
+---
+
+# ✨ Key Features
+
+## 🤖 AI-Powered Features
+
+### 🧠 AI Lead Qualification
+
+Google Gemini analyzes every incoming lead to determine its quality and sales potential.
+
+---
+
+### 📊 AI Lead Scoring
+
+Each lead receives an intelligent score (0–100) based on factors such as:
+
+- Service Requested
+- Budget
+- Business Type
+- Lead Information Quality
+- Purchase Intent
+
+Example:
+
+| Lead | AI Score |
+|------|----------|
+| Enterprise Website Project | 92 |
+| Local Business SEO | 78 |
+| Basic Inquiry | 41 |
+
+---
+
+### 🎯 Business Objective Detection
+
+Instead of simply storing the requested service, Gemini identifies the customer's real business objective.
+
+Examples:
+
+- Brand Awareness
+- Website Modernization
+- Lead Generation
+- Paid Search Growth
+- Customer Acquisition
+
+---
+
+### 📝 AI Lead Summary
+
+Automatically generates concise summaries for sales teams.
+
+Example:
+
+> John from ABC Manufacturing is interested in a new corporate website with a budget above ₹1,00,000 and is seeking modernization of their online presence.
+
+---
+
+### 💡 AI Follow-up Suggestions
+
+Every lead receives personalized follow-up recommendations.
+
+Example:
+
+- Schedule a discovery call.
+- Share website portfolio.
+- Discuss branding goals.
+- Prepare enterprise pricing proposal.
+
+---
+
+## ⚙️ Automation Features
 
 ### 📥 Real-Time Lead Capture
 
-- Captures new submissions from Google Forms instantly
-- Automatically triggers the workflow in n8n
+- Google Forms Trigger
+- Instant workflow execution using n8n
+
+---
 
 ### 🆔 Automatic Lead ID Generation
 
 Sequential Lead IDs are generated automatically.
 
-**Example**
+Examples:
 
 - L1101
 - L1102
@@ -38,26 +122,26 @@ Sequential Lead IDs are generated automatically.
 
 ---
 
-### 👨‍💼 Smart Salesperson Assignment
+### 👨‍💼 Intelligent Salesperson Assignment
 
-Leads are automatically assigned based on the selected service.
+Automatically assigns leads based on requested services.
 
-| Service | Assigned Salesperson |
-|---------|----------------------|
+| Service | Sales Representative |
+|----------|----------------------|
 | Branding | Rahul Mehra |
-| Google Ads | Priya Singh |
 | SEO | Amit Verma |
 | Website Development | Sneha Kapoor |
-| Social Media Management | Jay Verma |
+| Google Ads | Priya Singh |
 | Meta Ads | Dheeraj Singh |
+| Social Media | Jay Verma |
 
 ---
 
-### 📅 Automatic Follow-up Date
+### 📅 Automated Follow-up Scheduling
 
-Every newly created lead automatically receives a follow-up date.
+Every new lead automatically receives a follow-up date.
 
-**Rule**
+Rule:
 
 > Created Date + 2 Days
 
@@ -65,7 +149,7 @@ Every newly created lead automatically receives a follow-up date.
 
 ### 🗂 CRM Database
 
-The workflow automatically stores:
+Automatically stores:
 
 - Lead ID
 - Customer Name
@@ -73,28 +157,32 @@ The workflow automatically stores:
 - Email
 - Phone Number
 - Lead Source
-- Lead Status
+- Requested Service
+- Budget
+- AI Lead Score
+- Business Objective
+- AI Summary
+- Follow-up Suggestion
 - Assigned Salesperson
+- Lead Status
 - Follow-up Date
 - Created Date
-- Budget
-- Notes
 
 ---
 
 ### 📧 Automated HTML Email
 
-Every customer automatically receives a professional acknowledgment email containing:
+Every customer instantly receives a professionally formatted acknowledgment email including:
 
-- Customer Name
-- Company Name
-- Selected Service
-- Budget
-- Assigned Sales Representative
+- Customer Details
+- Requested Service
+- Assigned Representative
+- Company Branding
+- Contact Information
 
 ---
 
-## 🔄 Workflow Architecture
+# 🔄 Workflow Architecture
 
 ```text
 Google Form
@@ -103,65 +191,85 @@ Google Form
 Google Sheets Trigger
       │
       ▼
-Generate Lead ID
+JavaScript Processing
+      │
+      ▼
+Google Gemini AI
+      │
+      ├───────────────┐
+      │               │
+      ▼               ▼
+AI Lead Score    Business Objective
+      │               │
+      ├───────────────┤
+      ▼
+AI Lead Summary
+      │
+      ▼
+Follow-up Recommendation
       │
       ▼
 Assign Salesperson
       │
       ▼
-Generate Follow-up Date
+Generate Lead ID
       │
       ▼
-Append Lead to CRM Database
+CRM Database
       │
       ▼
-Update Latest Lead ID
-      │
-      ▼
-Send HTML Confirmation Email
+HTML Email
 ```
 
 ---
 
-## 🛠 Technology Stack
+# 🛠 Technology Stack
 
 - n8n
+- Google Gemini
 - Google Forms
 - Google Sheets
 - Gmail
 - JavaScript
 - HTML Email Templates
+- JSON
 
 ---
 
-## 📊 Business Benefits
+# 📈 Business Benefits
 
-- Eliminates manual data entry
-- Standardizes lead management
-- Automatically assigns sales representatives
-- Improves response time
-- Generates unique Lead IDs
-- Reduces human error
-- Maintains a centralized CRM database
-- Enables future reporting and analytics
+- Eliminates repetitive manual CRM work
+- AI-powered lead qualification
+- Intelligent lead prioritization
+- Faster response time
+- Consistent sales process
+- Automated CRM updates
+- Personalized follow-up recommendations
+- Improved customer experience
+- Better lead management
+- Reduced human error
 
 ---
 
-## 📂 Repository Structure
+# 📂 Repository Structure
 
 ```text
-Lead-Intake-CRM-Automation/
+AI-Enabled-CRM-Automation/
+
 │
 ├── workflow/
-│   └── Lead Intake Pipeline.json
+│   └── AI CRM Automation.json
 │
 ├── screenshots/
 │   ├── workflow.png
 │   ├── google-form.png
-│   ├── crm-database.png
-│   ├── email.png
-│   ├── lead-id.png
-│   └── salesperson-assignment.png
+│   ├── crm-sheet.png
+│   ├── ai-score.png
+│   ├── ai-summary.png
+│   ├── business-objective.png
+│   ├── followup-suggestion.png
+│   ├── gemini-node.png
+│   └── html-email.png
 │
 ├── README.md
 └── LICENSE
@@ -169,77 +277,79 @@ Lead-Intake-CRM-Automation/
 
 ---
 
-## 📸 Screenshots
+# 📸 Screenshots
 
-### Workflow
+## Workflow
 
-```markdown
 ![Workflow](screenshots/workflow.png)
-```
 
-### Google Form
+## Google Form
 
-```markdown
 ![Google Form](screenshots/google-form.png)
-```
 
-### CRM Database
+## AI Lead Score
 
-```markdown
-![CRM Database](screenshots/crm-database.png)
-```
+![AI Score](screenshots/ai-score.png)
 
-### HTML Email
+## Business Objective
 
-```markdown
-![Email](screenshots/email.png)
-```
+![Business Objective](screenshots/business-objective.png)
+
+## AI Summary
+
+![AI Summary](screenshots/ai-summary.png)
+
+## CRM Database
+
+![CRM Database](screenshots/crm-sheet.png)
+
+## HTML Email
+
+![Email](screenshots/html-email.png)
 
 ---
 
-## 🚀 Future Enhancements
+# 🚀 Future Enhancements
 
-### Version 3
-
-- Interactive Power BI Dashboard
-- Lead Conversion Analytics
-- Sales Performance Dashboard
-- Revenue Tracking
-
-### Version 4
-
-- PostgreSQL Database
-- REST API Integration
-- Role-based Authentication
+- AI Email Personalization
+- WhatsApp Integration
+- PostgreSQL Backend
 - CRM Web Dashboard
-- WhatsApp Notifications
-- Automated Reminder Emails
-- AI Lead Scoring
+- Power BI Analytics
+- REST API
+- Role-Based Authentication
+- Multi-Agent AI Sales Assistant
+- Voice AI Sales Agent
 
 ---
 
-## 💼 Skills Demonstrated
+# 💼 Skills Demonstrated
 
-- Workflow Automation
+- AI Workflow Automation
+- n8n Automation
+- Google Gemini Integration
+- Prompt Engineering
 - Business Process Automation
 - CRM Design
 - JavaScript
 - Google Workspace Automation
 - API Integration
-- Data Management
-- Email Automation
-- Process Optimization
+- AI Lead Qualification
+- Workflow Design
+- HTML Email Automation
 - Low-Code Development
 - System Design
 
 ---
 
-## 👨‍💻 About
+# 👨‍💻 About
 
-This project was developed as part of my workflow automation portfolio to demonstrate practical business automation using **n8n**, **Google Workspace**, and **JavaScript**.
+This project demonstrates how Large Language Models can be integrated into business workflows to automate lead management, improve CRM quality, and assist sales teams with intelligent decision-making.
+
+It showcases practical applications of **Generative AI**, **workflow automation**, and **business process optimization** using modern AI tools.
 
 ---
 
-## 📄 License
+# 📄 License
 
 This project is licensed under the **MIT License**.
