@@ -33,6 +33,19 @@ Whenever a customer submits a Google Form, the workflow automatically:
 The result is a CRM system that not only automates data entry but also enriches every lead with AI-generated business insights.
 
 ---
+# 🎯 AI Enrichment Pipeline
+
+Unlike a traditional CRM automation workflow that simply stores submitted data, this platform enriches every incoming lead using Google Gemini AI.
+
+Each lead is automatically enhanced with:
+
+- 📊 AI Lead Score (0–100)
+- 🎯 Business Objective Detection
+- 📝 AI-generated Lead Summary
+- 💡 Personalized Follow-up Recommendation
+
+These AI-generated insights are then stored alongside the original lead information, enabling sales teams to prioritize leads and respond more effectively.
+---
 
 # ✨ Key Features
 
@@ -185,40 +198,45 @@ Every customer instantly receives a professionally formatted acknowledgment emai
 # 🔄 Workflow Architecture
 
 ```text
-Google Form
-      │
-      ▼
+Google Form Submission
+          │
+          ▼
 Google Sheets Trigger
-      │
-      ▼
-JavaScript Processing
-      │
-      ▼
+          │
+          ▼
+Read Submitted Lead
+(Get row(s) in sheet)
+          │
+          ▼
+Generate Unique Lead ID
+          │
+          ▼
+Assign Sales Representative
+          │
+          ▼
+Generate Follow-up Date
+          │
+          ▼
 Google Gemini AI
-      │
-      ├───────────────┐
-      │               │
-      ▼               ▼
-AI Lead Score    Business Objective
-      │               │
-      ├───────────────┤
-      ▼
-AI Lead Summary
-      │
-      ▼
-Follow-up Recommendation
-      │
-      ▼
-Assign Salesperson
-      │
-      ▼
-Generate Lead ID
-      │
-      ▼
-CRM Database
-      │
-      ▼
-HTML Email
+──────────────────────────────────
+• Lead Score
+• Business Objective
+• AI Summary
+• Follow-up Recommendation
+──────────────────────────────────
+          │
+          ▼
+JavaScript Processing
+(Parse Gemini JSON Response)
+          │
+          ▼
+Append Lead to CRM Database
+          │
+          ▼
+Update Latest Lead ID
+          │
+          ▼
+Send HTML Acknowledgment Email
 ```
 
 ---
